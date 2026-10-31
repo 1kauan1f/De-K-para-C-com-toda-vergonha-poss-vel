@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Cecylia</title>
+    <style>
+        :root {
+            --text-color: #4a3333;
+            --accent-color: #e5b3b3;
+            --accent-dark: #b87878;
+            /* Imagem de fundo floral delicada em aquarela */
+            --bg-image: url('https://unsplash.com');
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-image: var(--bg-image);
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            position: relative;
+        }
+
+        /* Camada suave para suavizar o fundo caso a imagem seja muito forte */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255, 248, 248, 0.65);
+            z-index: 1;
+        }
+
+        .container {
+            position: relative;
+            z-index: 2;
+            max-width: 550px;
+            width: 100%;
+            /* Efeito de vidro fosco (Glassmorphism) delicado */
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            -webkit-backdrop-filter: blur(10px);
+            padding: 45px 30px;
+            border-radius: 24px;
+            box-shadow: 0 15px 35px rgba(184, 120, 120, 0.15);
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.6);
+        }
+
+        .heart {
+            font-size: 2rem;
+            margin-bottom: 20px;
+            animation: pulse 2.5s infinite ease-in-out;
+            display: inline-block;
+        }
+
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+            100% { transform: scale(1); }
+        }
+
+        h1 {
+            font-size: 1.9rem;
+            color: var(--text-color);
+            margin-bottom: 15px;
+            font-weight: 400;
+            letter-spacing: -0.5px;
+        }
+
+        h1 span {
+            color: var(--accent-dark);
+            font-weight: 600;
+        }
+
+        p.intro {
+            font-size: 1.05rem;
+            margin-bottom: 40px;
+            color: #634a4a;
+            font-style: italic;
+        }
+
+        .section-title {
+            font-size: 0.85rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--accent-dark);
+            margin-bottom: 25px;
+            font-weight: 600;
+        }
+
+        .details-list {
+            text-align: left;
+            margin-bottom: 35px;
+        }
+
+        .detail-item {
+            margin-bottom: 25px;
+            padding-left: 20px;
+            border-left: 3px solid var(--accent-color);
+            opacity: 0;
+            transform: translateY(10px);
+            animation: fadeIn 0.8s forwards;
+        }
+
+        .detail-item:nth-child(1) { animation-delay: 0.3s; }
+        .detail-item:nth-child(2) { animation-delay: 0.6s; }
+        .detail-item:nth-child(3) { animation-delay: 0.9s; }
+
+        @keyframes fadeIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .detail-item strong {
+            display: block;
+            font-size: 1.05rem;
+            color: var(--text-color);
+            margin-bottom: 4px;
+        }
+
+        .detail-item span {
+            font-size: 0.95rem;
+            color: #5c4545;
+        }
+
+        .btn {
+            background-color: var(--accent-color);
+            color: white;
+            border: none;
+            padding: 14px 35px;
+            font-size: 1rem;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 20px rgba(229, 179, 179, 0.4);
+            margin-top: 15px;
+            font-weight: 500;
+        }
+
+        .btn:hover {
+            background-color: var(--accent-dark);
+            transform: translateY(-2px);
+            box-shadow: 0 8px 25px rgba(184, 120, 120, 0.4);
+        }
+
+        .secret-message {
+            margin-top: 30px;
+            font-size: 1.05rem;
+            color: var(--text-color);
+            display: none;
+            opacity: 0;
+            transition: opacity 0.6s ease;
+            padding: 20px;
+            background: rgba(255, 240, 240, 0.9);
+            border-radius: 16px;
+            border: 1px dashed var(--accent-color);
+            line-height: 1.7;
+        }
+
+        .secret-message.show {
+            display: block;
+            opacity: 1;
+        }
+
+        footer {
+            margin-top: 40px;
+            font-size: 0.75rem;
+            color: #8c7373;
+            letter-spacing: 1px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="heart">🌸</div>
+        <h1>Para os dias em que você esquecer o quanto é incrível, <span>Cecylia</span>...</h1>
+        
+        <p class="intro">
+            Eu tenho esse hábito bobo de reparar nos detalhes. E achei que você merecia ler alguns deles hoje de um jeito diferente:
+        </p>
+
+        <div class="section-title">Pequenas coisas que noto em você</div>
+        
+        <div class="details-list">
+            <div class="detail-item">
+                <strong>O seu jeito de ouvir</strong>
+                <span>A forma atenciosa como você me escuta e faz com que eu me sinta super confortável para falar sobre qualquer assunto.</span>
+            </div>
+            <div class="detail-item">
+                <strong>A sua voz e a sua energia</strong>
+                <span>A sensação de paz que dá só de ouvir você falar sobre as coisas que você ama.</span>
+            </div>
+            <div class="detail-item">
+                <strong>O encaixe do nosso tempo</strong>
+                <span>Como as horas voam e o mundo parece fazer muito mais sentido quando estamos conversando.</span>
+            </div>
+        </div>
+
+        <button class="btn" onclick="revealMessage()">Um último bilhete para você...</button>
+        
+        <div id="secretMessage" class="secret-message">
+            Não tem dia certo, nem motivo especial. Só queria que você soubesse, com todas as letras, que o meu coração fica muito mais quentinho e feliz desde que você chegou. Amo imensamente a sua presença na minha vida. Obrigado por ser exatamente quem você é. ❤️
+        </div>
+
+        <footer>FEITO COM MUITO CARINHO WKS</footer>
+    </div>
+
+    <script>
+        function revealMessage() {
+            const message = document.getElementById('secretMessage');
+            message.classList.toggle('show');
+            
+            const btn = document.querySelector('.btn');
+            if (message.classList.contains('show')) {
+                btn.innerText = 'Fechar bilhete';
+                setTimeout(() => {
+                    message.scrollIntoView({ behavior: 'smooth' });
+                }, 100);
+            } else {
+                btn.innerText = 'Um último bilhete para você...';
+            }
+        }
+    </script>
+</body>
+</html>
